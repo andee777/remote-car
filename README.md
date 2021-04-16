@@ -1,1 +1,4 @@
 # remote-car
+## dépendences : 
+- Flask
+- 
