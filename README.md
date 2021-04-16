@@ -1,5 +1,5 @@
 # Remote-car
-![image](https://user-images.githubusercontent.com/29150454/114992531-dad34b80-9e68-11eb-8711-459adc40017a.png)
+![image](https://user-images.githubusercontent.com/29150454/114994291-a1034480-9e6a-11eb-90f2-3c23d90906c8.png)
 
 ## Dépendences : 
 - from flask import Flask, render_template, Response
