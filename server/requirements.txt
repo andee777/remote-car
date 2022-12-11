@@ -1,4 +1,4 @@
 flask
 flask-socketio
-Adafruit-DHT
+adafruit-circuitpython-dht
 serial
