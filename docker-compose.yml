@@ -4,3 +4,5 @@ services:
     build: ./server
     ports:
       - "8000:5000"
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
