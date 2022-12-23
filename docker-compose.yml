@@ -14,8 +14,6 @@ services:
   laravel_server:
     build:
       context: ./laravel_server
-      dockerfile: Dockerfile
-    image: digitalocean.com/php
     container_name: laravel_server
     restart: unless-stopped
     tty: true
@@ -23,9 +21,9 @@ services:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
     working_dir: /var/www/laravel_server
-    volumes:
-      - ./laravel_server:/var/www/laravel_server
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    # volumes:
+      # - ./laravel_server:/var/www/laravel_server
+      # - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
 
