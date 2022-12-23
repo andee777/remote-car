@@ -15,11 +15,12 @@ RUN composer install \
 # Frontend
 #
 FROM node:latest as frontend
-RUN mkdir -p /app/public
+# RUN mkdir -p /app/public
 COPY . /app/
 # COPY resources/assets/ /app/resources/assets/
 WORKDIR /app
 RUN npm install && npm run build
+RUN ls
 #
 # Application
 #
