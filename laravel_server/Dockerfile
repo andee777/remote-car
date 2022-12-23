@@ -26,6 +26,8 @@ RUN ls
 #
 FROM php:7.2-apache-stretch
 COPY . /var/www/html
+COPY ./apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY ./apache/ports.conf /etc/apache2/ports.conf
 COPY --from=vendor /app/vendor/ /var/www/html/vendor/
 # COPY --from=frontend /app/public/js/ /var/www/html/public/js/
 # COPY --from=frontend /app/public/css/ /var/www/html/public/css/
