@@ -22,9 +22,28 @@ services:
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
-    working_dir: /var/www
+    working_dir: /var/www/laravel_server
     volumes:
-      - ./laravel_server:/var/www
+      - ./laravel_server:/var/www/laravel_server
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - app-network
+
+  #Wordpress
+  wordpress:
+    build:
+      context: ./laravel_server
+      dockerfile: Dockerfile
+    image: digitalocean.com/php
+    container_name: wordpress
+    restart: unless-stopped
+    tty: true
+    # environment:
+    #   SERVICE_NAME: app
+    #   SERVICE_TAGS: dev
+    working_dir: /var/www/wordpress
+    volumes:
+      - ./laravel_server:/var/www/wordpress
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
@@ -39,7 +58,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./laravel_server:/var/www
+      - ./laravel_server:/var/www/laravel_server
+      - ./wordpress:/var/www/wordpress
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
