@@ -17,6 +17,8 @@ services:
     container_name: laravel_server
     restart: unless-stopped
     tty: true
+    ports:
+      - "8044:80"
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
@@ -28,27 +30,20 @@ services:
       - app-network
 
   #Wordpress
-  wordpress:
-    image: wordpress
-    container_name: wordpress
-    # restart: unless-stopped
-    tty: true
-    ports:
-      - "80:80"
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: ${DB_USERNAME}
-      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-      WORDPRESS_DB_NAME: ${WP_DATABASE}
-    # environment:
-    #   SERVICE_NAME: app
-    #   SERVICE_TAGS: dev
-    # working_dir: /var/www/wordpress
-    # volumes:
-    #   - ./laravel_server:/var/www/wordpress
-    #   - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    networks:
-      - app-network
+  # wordpress:
+  #   image: wordpress
+  #   container_name: wordpress
+  #   # restart: unless-stopped
+  #   tty: true
+  #   ports:
+  #     - "80:80"
+  #   environment:
+  #     WORDPRESS_DB_HOST: db
+  #     WORDPRESS_DB_USER: ${DB_USERNAME}
+  #     WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+  #     WORDPRESS_DB_NAME: ${WP_DATABASE}
+  #   networks:
+  #     - app-network
 
   #Nginx Service
   # webserver:
