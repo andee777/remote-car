@@ -19,7 +19,7 @@ RUN mkdir -p /app/public
 COPY . /app/
 # COPY resources/assets/ /app/resources/assets/
 WORKDIR /app
-RUN npm install && npx mix --production
+RUN npm install && npm run build
 #
 # Application
 #
