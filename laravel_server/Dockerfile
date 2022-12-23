@@ -16,10 +16,10 @@ RUN composer install \
 #
 FROM node:8.11 as frontend
 RUN mkdir -p /app/public
-COPY package.json webpack.mix.js yarn.lock /app/
+COPY package.json webpack.mix.js /app/
 # COPY resources/assets/ /app/resources/assets/
 WORKDIR /app
-RUN yarn install && yarn production
+RUN npm install && npm production
 #
 # Application
 #
