@@ -14,7 +14,7 @@ RUN composer install \
 #
 # Frontend
 #
-FROM node:8.11 as frontend
+FROM node:latest as frontend
 RUN mkdir -p /app/public
 COPY package.json webpack.mix.js /app/
 # COPY resources/assets/ /app/resources/assets/
