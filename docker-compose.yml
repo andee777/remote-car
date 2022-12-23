@@ -31,20 +31,24 @@ services:
 
   #Wordpress
   wordpress:
-    build:
-      context: ./laravel_server
-      dockerfile: Dockerfile
-    image: digitalocean.com/php
+    image: wordpress
     container_name: wordpress
-    restart: unless-stopped
+    # restart: unless-stopped
     tty: true
+    ports:
+      - "8051:8055"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USERNAME}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WP_DATABASE}
     # environment:
     #   SERVICE_NAME: app
     #   SERVICE_TAGS: dev
-    working_dir: /var/www/wordpress
-    volumes:
-      - ./laravel_server:/var/www/wordpress
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    # working_dir: /var/www/wordpress
+    # volumes:
+    #   - ./laravel_server:/var/www/wordpress
+    #   - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
 
@@ -73,8 +77,8 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
