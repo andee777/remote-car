@@ -19,7 +19,7 @@ RUN mkdir -p /app/public
 COPY package.json webpack.mix.js /app/
 # COPY resources/assets/ /app/resources/assets/
 WORKDIR /app
-RUN npm install && npm run production
+RUN npm install && npx mix --production
 #
 # Application
 #
