@@ -27,6 +27,10 @@ RUN ls
 FROM php:7.2-apache-stretch
 COPY . /var/www/html
 # RUN chown -R www-data:www-data /var/www/html
+RUN sudo chown -R :www-data /var/www/html
+RUN sudo chmod -R 775 /var/www/html
+RUN sudo chmod -R 775 /var/www/html/storage
+RUN sudo chmod -R 775 /var/www/html/bootstrap/cache
 COPY ./apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 COPY ./apache/ports.conf /etc/apache2/ports.conf
 COPY --from=vendor /app/vendor/ /var/www/html/vendor/
