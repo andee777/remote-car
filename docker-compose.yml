@@ -30,20 +30,20 @@ services:
       - app-network
 
   #Wordpress
-  # wordpress:
-  #   image: wordpress
-  #   container_name: wordpress
-  #   # restart: unless-stopped
-  #   tty: true
-  #   ports:
-  #     - "80:80"
-  #   environment:
-  #     WORDPRESS_DB_HOST: db
-  #     WORDPRESS_DB_USER: ${DB_USERNAME}
-  #     WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-  #     WORDPRESS_DB_NAME: ${WP_DATABASE}
-  #   networks:
-  #     - app-network
+  wordpress:
+    image: wordpress
+    container_name: wordpress
+    # restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USERNAME}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WP_DATABASE}
+    networks:
+      - app-network
 
   #Nginx Service
   # webserver:
