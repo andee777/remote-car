@@ -53,20 +53,20 @@ services:
       - app-network
 
   #Nginx Service
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./laravel_server:/var/www/laravel_server
-      - ./wordpress:/var/www/wordpress
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - app-network
+  # webserver:
+  #   image: nginx:alpine
+  #   container_name: webserver
+  #   restart: unless-stopped
+  #   tty: true
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./laravel_server:/var/www/laravel_server
+  #     - ./wordpress:/var/www/wordpress
+  #     - ./nginx/conf.d/:/etc/nginx/conf.d/
+  #   networks:
+  #     - app-network
 
   #MySQL Service
   db:
