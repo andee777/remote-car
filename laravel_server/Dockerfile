@@ -27,6 +27,7 @@ RUN ls
 FROM php:7.2-apache-stretch
 COPY . /var/www/html
 COPY --from=vendor /app/vendor/ /var/www/html/vendor/
-COPY --from=frontend /app/public/js/ /var/www/html/public/js/
-COPY --from=frontend /app/public/css/ /var/www/html/public/css/
+# COPY --from=frontend /app/public/js/ /var/www/html/public/js/
+# COPY --from=frontend /app/public/css/ /var/www/html/public/css/
+COPY --from=frontend /app/public/ /var/www/html/public/
 # COPY --from=frontend /app/mix-manifest.json /var/www/html/mix-manifest.json
