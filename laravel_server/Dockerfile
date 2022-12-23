@@ -29,4 +29,4 @@ COPY . /var/www/html
 COPY --from=vendor /app/vendor/ /var/www/html/vendor/
 COPY --from=frontend /app/public/js/ /var/www/html/public/js/
 COPY --from=frontend /app/public/css/ /var/www/html/public/css/
-COPY --from=frontend /app/mix-manifest.json /var/www/html/mix-manifest.json
+# COPY --from=frontend /app/mix-manifest.json /var/www/html/mix-manifest.json
